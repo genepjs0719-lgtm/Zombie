@@ -28,11 +28,14 @@ public class PlayerMovement : MonoBehaviour {
 
     // 입력값에 따라 캐릭터를 앞뒤로 움직임
     private void Move() {
-
+        Vector3 moveDistance =
+            playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
+        playerRigidbody.MovePosition(playerRigidbody.position + moveDistance);
     }
 
     // 입력값에 따라 캐릭터를 좌우로 회전
     private void Rotate() {
-
+        float turn = playerInput.rotate * rotateSpeed * Time.deltaTime;
+        playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0, turn, 0f);
     }
 }
