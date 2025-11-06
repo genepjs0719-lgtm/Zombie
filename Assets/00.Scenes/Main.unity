@@ -2094,7 +2094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.11764706}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3257,6 +3257,7 @@ GameObject:
   - component: {fileID: 7930409468055476009}
   - component: {fileID: 3893163728468946760}
   - component: {fileID: 3515125026005680307}
+  - component: {fileID: 7930409468055476010}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Player
@@ -3539,6 +3540,23 @@ MonoBehaviour:
   rotateAxisName: Horizontal
   fireButtonName: Fire1
   reloadButtonName: Reload
+--- !u!114 &7930409468055476010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4183132560198701950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59ae54f97f62d844aebf692b4294dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  healthSlider: {fileID: 2114503953}
+  deathClip: {fileID: 8300000, guid: 4265c953ea2b74edabac0c972182dcba, type: 3}
+  hitClip: {fileID: 8300000, guid: cbfb3a79860ac42c89b09fc131ef4b61, type: 3}
+  itemPickupClip: {fileID: 8300000, guid: 519ad2e4de69341948a938bf2a31e33b, type: 3}
 --- !u!1001 &8187761513797153025
 PrefabInstance:
   m_ObjectHideFlags: 0
