@@ -136,5 +136,27 @@ public class Zombie : LivingEntity
 
     private void OnTriggerStay(Collider other) {
         // 트리거 충돌한 상대방 게임 오브젝트가 추적 대상이라면 공격 실행
+        // 자신이 사망하지 않았으면 timeBetAttac 이상 시간이 지났다면 공격 가능 
+        // 최근 공격 시점에서
+        if (!dead && Time.time >= lastAttackTime + timeBetAttack)
+        {
+            // 상대방의LivingEntity 타입 가져오기 시도
+            LivingEntity attackTarget = other.GetComponent<LivingEntity>();
+
+            // 상대방의 LivingEntity가 자신의 추적 대상이라면 공격 실행
+
+            if (attackTarget != null && attackTarget == targetEntity)
+            {
+                // 최근 공격 시간 개시
+                lastAttackTime = Time.time;
+
+                Vector3 hitPoint = other.ClosestPoint(transform.position);
+                Vector3 hitNormal = transform.position - other.transform.position;
+
+                attackTarget.OnDamage(damage, hitPoint, hitNormal);
+            }
+        }
+
+
     }
 }

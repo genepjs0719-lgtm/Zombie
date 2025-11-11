@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour {
         {
             if (m_instance == null)
             {
-                m_instance = FindObjectOfType<UIManager>();
+                m_instance = FindFirstObjectByType<UIManager>();
             }
 
             return m_instance;
@@ -24,6 +24,15 @@ public class UIManager : MonoBehaviour {
     public Text scoreText; // 점수 표시용 텍스트
     public Text waveText; // 적 웨이브 표시용 텍스트
     public GameObject gameoverUI; // 게임 오버시 활성화할 UI 
+
+    private void Awake()
+    {
+        
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // 탄약 텍스트 갱신
     public void UpdateAmmoText(int magAmmo, int remainAmmo) {
